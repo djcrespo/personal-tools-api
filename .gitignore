@@ -1,0 +1,8 @@
+# Variables de entorno
+/.env.local
+
+# BD sqlite
+/db.sqlite3
+
+# Extensiones
+*.pyc
