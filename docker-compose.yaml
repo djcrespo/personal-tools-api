@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  ############
+  #  Django  #
+  ############
+  personal-tools-api:
+    image: 330121144853.dkr.ecr.us-east-2.amazonaws.com/personal-tools-api:1221
+    command: sh -c "python manage.py migrate && python manage.py && gunicorn config.wsgi --bind 0.0.0.0:8000 --workers 3 --log-level=DEBUG"
+    restart: unless-stopped
+    container_name: personal-tools-api
+    networks:
+      - net-proxy
+    environment:
+      - VIRTUAL_HOST=personal-tools-api.devcrespo.com
+      - VIRTUAL_PORT=8000
+      - LETSENCRYPT_HOST=personal-tools-api.devcrespo.com
+    expose:
+      - 8000
+    env_file: .env
+
+networks:
+  net-proxy:
+    external: true
