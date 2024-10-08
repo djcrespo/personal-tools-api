@@ -5,7 +5,7 @@ services:
   ############
   personal-tools-api:
     image: 330121144853.dkr.ecr.us-east-2.amazonaws.com/personal-tools-api:1221
-    command: sh -c "python manage.py migrate && python manage.py && gunicorn config.wsgi --bind 0.0.0.0:8000 --workers 3 --log-level=DEBUG"
+    command: sh -c "python manage.py migrate && python manage.py && gunicorn settings.wsgi --bind 0.0.0.0:8000 --workers 3 --log-level=DEBUG"
     restart: unless-stopped
     container_name: personal-tools-api
     networks:
