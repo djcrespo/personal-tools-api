@@ -5,7 +5,7 @@ FROM python:3.10-buster
 WORKDIR /code
 
 # Instalar dependencias base
-RUN apt-get update && apt-get install -y gcc libpq-dev python3-dev
+RUN apt-get update && apt-get install -y gcc libpq-dev python3-dev ffmpeg
 
 # Actualizar gestor pip
 RUN pip install --upgrade pip
