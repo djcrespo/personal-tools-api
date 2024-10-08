@@ -44,7 +44,7 @@ def download_video(url):
         return None, None  # Retornar None en caso de error
 
 
-def convert_video(video):
+def convert_video(video=UploadedFile):
     try:
         # Guardar el archivo subido temporalmente en el sistema de archivos
         with tempfile.NamedTemporaryFile(delete=False, suffix=video.name) as temp_file:
