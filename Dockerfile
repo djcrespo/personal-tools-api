@@ -19,6 +19,9 @@ RUN pip install -r requirements.txt
 # Copiar proyecto en el directorio establecido
 COPY . /code/
 
+# Generar la carpeta con archivos estáticos
+RUN python manage.py collectstatic
+
 # Establecer variables de entorno
 ENV PYTHONUNBUFFERED 1
 
